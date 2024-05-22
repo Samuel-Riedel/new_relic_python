@@ -1,28 +1,70 @@
-from quizEN import QuestionEnglish
-from quizES import QuestionSpanish
+import matplotlib.pyplot as plt
 
-results = []
-question1 = QuestionSpanish("Cuanto es 2 + 2? \n",[1,2,3,4],4)
-user_response1 = int(input("type the correct number \n") )
-results.append({'question': "Cuanto es 2 + 2 ? \n", 'user_response' : user_response1, 'is_correct' : question1.is_correct(user_response1)})
+class Question:
+    def __init__(self, prompt, answer):
+        self.prompt = prompt
+        self.answer = answer
 
-question2 = QuestionSpanish("En que pais esta ubicada la ciudad de Barcelona? \n", ["Mexico","Brasil","España","Honduras"],"España")
-user_response2 = input("Escribe el pais correcto!\n")
-results.append({'question': "En que pais esta ubicada la ciudad de Barcelona? \n", 'user_response' : user_response2, 'is_correct': question2.is_correct(user_response2)})
+class Quiz:
+    def __init__(self, questions):
+        self.questions = questions
+        self.score = 0
+        self.current_question_index = 0
 
+    def display_question(self):
+        question = self.questions[self.current_question_index]
+        print(question.prompt)
+        user_answer = input("Enter your answer: ")
+        self.check_answer(user_answer)
 
+    def check_answer(self, user_answer):
+        question = self.questions[self.current_question_index]
+        if user_answer.lower() == question.answer.lower():
+            self.score += 1
+            print("Correct!")
+        else:
+            print(f"Wrong! The correct answer is {question.answer}")
+        self.current_question_index += 1
 
+    def has_more_questions(self):
+        return self.current_question_index < len(self.questions)
 
+    def display_score(self):
+        print(f"Your final score is {self.score} out of {len(self.questions)}")
+        self.plot_score()
 
+    def plot_score(self):
+        labels = ['Correct Answers', 'Wrong Answers']
+        correct = self.score
+        wrong = len(self.questions) - self.score
+        counts = [correct, wrong]
 
+        plt.bar(labels, counts, color=['green', 'red'])
+        plt.xlabel('Result')
+        plt.ylabel('Number of Questions')
+        plt.title('Quiz Results')
+        plt.show()
 
-for result in results:
-    print("Question:", result['question'])
-    print("User Response:", result['user_response'])
-    print("Is Correct:", result['is_correct'])
-    print()
+question_prompts = [
+    "What is the capital of France?\n(a) Paris\n(b) London\n(c) Rome\n(d) Berlin\n",
+    "What is the largest planet in our solar system?\n(a) Earth\n(b) Jupiter\n(c) Mars\n(d) Saturn\n",
+    "Who wrote 'To Kill a Mockingbird'?\n(a) Harper Lee\n(b) Mark Twain\n(c) J.K. Rowling\n(d) Ernest Hemingway\n"
+]
 
+questions = [
+    Question(question_prompts[0], "a"),
+    Question(question_prompts[1], "b"),
+    Question(question_prompts[2], "a")
+]
 
+def run_quiz():
+    quiz = Quiz(questions)
+    while quiz.has_more_questions():
+        quiz.display_question()
+    quiz.display_score()
+
+if __name__ == "__main__":
+    run_quiz()
 
 
 
