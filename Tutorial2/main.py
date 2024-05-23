@@ -1,24 +1,19 @@
-questions = ("Cuanto es 1 + 1? ",
-             "Cuantos es 2 + 2? ",
-             "Cuantos es 2 + 2? ",
-             "Cuantos es 2 + 2? ",
-             "Cuantos es 2 + 2? ",
-             )
+import util as util
+from questions import Question
 
-options = (("A. 2 ", "B. 3 ", "C. 5 ", "D. 7 "),
-           ("A. 2 ", "B. 3 ", "C. 5 ", "D. 7 "),
-           ("A. 4 ", "B. 6 ", "C. 8 ", "D. 10 "),
-           ("A. 6 ", "B. 8 ", "C. 10 ", "D. 12 "),
-           ("A. 10 ", "B. 11 ", "C. 12 ", "D. 13 "))
+questions = util.questions
+answers = util.answers
+options = util.options
 
-answers = ("A","B","B","D","A")
 guesses = []
 
 score = 0
 
 question_num = 0
 
-for question in questions:
+question = Question()
+guesses, score, question_num = question.resolveTest(questions,answers,options)
+"""for question in questions:
     print("--------------------")
     print(question)
     for option in options[question_num]:
@@ -33,6 +28,7 @@ for question in questions:
         print("Incorrect")
         print(f"{answers[question_num]} is the correct answer")
     question_num += 1
+    """
 
 
 print("--------------------")
@@ -49,5 +45,5 @@ for guess in guesses:
     print(guess, end=" ")
 print()
 
-score = int(score / len(questions) * 100)
+score = int(score / len(questions) * 100.0)
 print(f"your Score is {score}% ")
