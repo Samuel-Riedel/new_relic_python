@@ -1,131 +1,64 @@
-import matplotlib.pyplot as plt
+import util as util
+from questions import Question
 
-class Question:
-    def __init__(self, prompt, answer):
-        self.prompt = prompt
-        self.answer = answer
+#this is accessing util.py and asinging a variable 
+questions = util.questions 
+answers = util.answers
+options = util.options
 
-class Quiz:
-    def __init__(self, questions):
-        self.questions = questions
-        self.score = 0
-        self.current_question_index = 0
+#created this list to append and store the user answers
+guesses = []
 
-    def display_question(self):
-        question = self.questions[self.current_question_index]
-        print(question.prompt)
-        user_answer = input("Enter your answer: ")
-        self.check_answer(user_answer)
+#this is a variable with the value of 0 to keep score
+score = 0
 
-    def check_answer(self, user_answer):
-        question = self.questions[self.current_question_index]
-        if user_answer.lower() == question.answer.lower():
-            self.score += 1
-            print("Correct!")
-        else:
-            print(f"Wrong! The correct answer is {question.answer}")
-        self.current_question_index += 1
+#variable to keep track of questions answered by user
+#on file util.py/Question line 18 to 24 first it checks if
+#answer is correct and then sums one point to score and adds 1 number to
+#question_num so it can iterate to the question list
+question_num = 0
 
-    def has_more_questions(self):
-        return self.current_question_index < len(self.questions)
+#Object used to call the class Question and does a method call which calls the
+#list as arguments from util.py  
+question = Question()
+#here it calls the fucntion def resolveTest and we are able to pass the arguments 
+#called answers questions and options
+guesses, score, question_num = question.resolveTest(questions,answers,options) 
+"""for question in questions:
+    print("--------------------")
+    print(question)
+    for option in options[question_num]:
+        print(option)
 
-    def display_score(self):
-        print(f"Your final score is {self.score} out of {len(self.questions)}")
-        self.plot_score()
-
-    def plot_score(self):
-        labels = ['Correct Answers', 'Wrong Answers']
-        correct = self.score
-        wrong = len(self.questions) - self.score
-        counts = [correct, wrong]
-
-        plt.bar(labels, counts, color=['green', 'red'])
-        plt.xlabel('Result')
-        plt.ylabel('Number of Questions')
-        plt.title('Quiz Results')
-        plt.show()
-
-question_prompts = [
-    "What is the capital of France?\n(a) Paris\n(b) London\n(c) Rome\n(d) Berlin\n",
-    "What is the largest planet in our solar system?\n(a) Earth\n(b) Jupiter\n(c) Mars\n(d) Saturn\n",
-    "Who wrote 'To Kill a Mockingbird'?\n(a) Harper Lee\n(b) Mark Twain\n(c) J.K. Rowling\n(d) Ernest Hemingway\n"
-]
-
-questions = [
-    Question(question_prompts[0], "a"),
-    Question(question_prompts[1], "b"),
-    Question(question_prompts[2], "a")
-]
-
-def run_quiz():
-    quiz = Quiz(questions)
-    while quiz.has_more_questions():
-        quiz.display_question()
-    quiz.display_score()
-
-if __name__ == "__main__":
-    run_quiz()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-"""from quiz import Question
-
-def main():
-    prompt = input("Enter the question prompt")
-
-    options = []
-
-    num_options = int(input("how many are they? "))
-
-from Final_Project.quizEN import QuestionEnglish
-
-def main():
-    prompt = input("Enter the question prompt: ")
-    
-    options = []
-    num_options = int(input("How many options are there? "))
-    for i in range(num_options):
-        option = input(f"Enter option {i + 1}: ")
-        options.append(option)
-    
-    answer = input("Enter the correct answer: ")
-
-    # Create an instance of the Question class
-    question = QuestionEnglish(prompt, options, answer)
-
-    # Display the question and options to the user
-    print("\n" + question.prompt)
-    for idx, option in enumerate(question.options):
-        print(f"{idx + 1}. {option}")
-
-    # Get the user's answer and check if it is correct
-    user_answer = input("Enter your answer: ")
-    if question.is_correct(user_answer):
+    guess = input("Enter (A, B, C, D): ").upper()
+    guesses.append(guess)
+    if guess == answers[question_num]:
+        score += 1
         print("Correct!")
-    else:
-        print("Incorrect. The correct answer is:", question.answer)
+    else: 
+        print("Incorrect")
+        print(f"{answers[question_num]} is the correct answer")
+    question_num += 1
+    """
 
-if __name__ == "__main__":
-    main()"""
+#Added some decoration for the quiz using prints
+print("--------------------")
+print("------RESULTS-------")
+print("--------------------")
+
+#this ode block will print the word Answers and iterate over the answers list
+print("ANSWERS: ", end="")
+for answer in answers:
+    print(answer, end=" ")
+print()
+
+#this code block will print the word Guesses and iterate over the guesses list we created
+print("guesses: ", end="")
+for guess in guesses:
+    print(guess, end=" ")
+print()
+
+#this will divide the score by the total number of questions ahd then multiply it by 100
+#to get the percentage then its going to convert it an integer and ´print it
+score = int(score / len(questions) * 100.0)
+print(f"your Score is {score}% ")

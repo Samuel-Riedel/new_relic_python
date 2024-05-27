@@ -52,7 +52,7 @@ for answer in answers:
     print(answer, end=" ")
 print()
 
-#this ode block will print the word Guesses and iterate over the guesses list we created
+#this code block will print the word Guesses and iterate over the guesses list we created
 print("guesses: ", end="")
 for guess in guesses:
     print(guess, end=" ")
