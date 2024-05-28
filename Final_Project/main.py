@@ -10,8 +10,8 @@ options = util.options
 #asks the user to create a username to save it on JSON file
 username = input("Create your username: \n")
 
-#variable saves in an input the gender of the person  and sends its to the json file 
-gender= input("Please specify a gender \n Male\n Female\n Others\n")
+#variable saves in an input the gender of the person  and sends its to the json file in lower case
+gender= input("Please specify a gender\n Male\n Female\n Others\n").lower()
 
 #created this list to append and store the user answers
 guesses = []

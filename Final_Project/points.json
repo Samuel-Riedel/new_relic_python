@@ -1,9 +1,24 @@
 {
-    "points": [
-        {
-            "username": "sasas",
-            "gender": "male",
-            "score": 20
-        }
-    ]
+  "points": [
+    {
+      "username": "sasas",
+      "gender": "male",
+      "score": 20
+    },
+    {
+      "username": "Samuel Eduardo",
+      "gender": "Male",
+      "score": 40
+    },
+    {
+      "username": "samuel rieel",
+      "gender": "male",
+      "score": 20
+    },
+    {
+      "username": "HELLO",
+      "gender": "male",
+      "score": 20
+    }
+  ]
 }
