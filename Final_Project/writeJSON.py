@@ -1,17 +1,15 @@
 import json
-file = "C:/Users/samue/OneDrive/Escritorio/Migracode/new_relic_python/Final_Project/testFile.json"
 
+class Escribir():
+    pass
+    def escribir(data, filename="points.json"):
+        with open(filename, "w") as f:
+            json.dump(data, f, indent=4)
 
-def write_json(data,filename="testFile.json"):
-    with open (filename,"w") as f:
-        json.dump(data,f,indent=4)
+def append_data_to_file(file_path, new_data):
+    with open(file_path) as json_file:
+        data = json.load(json_file)
+        temp = data["points"]
+        temp.append(new_data)
+    Escribir.escribir(data, file_path)
 
-with open (file) as json_file:
-    data = json.load(json_file)
-    temp = data["names"]
-    y = {"firstname":"testing", "age": 24}
-    temp.append(y)
-
-
-
-write_json(data,file)
