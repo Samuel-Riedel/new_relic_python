@@ -70,7 +70,9 @@ print()
 #this will divide the score by the total number of questions ahd then multiply it by 100
 #to get the percentage then its going to convert it an integer and ´print it
 score = int(score / len(questions) * 100.0)
-print(f"your Score is {score}% ")
+print("-------------------------")
+print(f"--| your Score is {score}% |--")
+print("-------------------------")
 
 
 #JSON import
@@ -91,12 +93,12 @@ genders = [entry.get("gender","unknown")for entry in data["points"]]
 medium_score = score / len(users)
 
 
-#Plot part
+#Matplotlib part
 plt.plot(users,scores)
 plt.plot(medium_score, label="Medium Score")
 plt.xlabel("Usernames")
 plt.ylabel("Scores")
-plt.title("Quiz Medium Scores")
+plt.title("Quiz Scores")
 
 plt.legend(["Score"])
 plt.show()
