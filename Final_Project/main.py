@@ -90,7 +90,7 @@ scores = [entry.get("score", 0)for entry in data["points"]]
 genders = [entry.get("gender","unknown")for entry in data["points"]]
 
 #Variable with medium scores for plot
-int_result = int(''.join(map(str, scores))) #stackoverflow convert list to numbers
+int_result = int(''.join(map(str, scores))) #stackoverflow convert list to numbers, i dont know why i created this variable 
 medium_score = sum(scores) / len(users) #tried to sum a list and divide it by length of list, now its fixed with sum(score) 
 
 
@@ -105,19 +105,19 @@ plt.legend(["Score"])
 plt.show()
 
 #-------------------------------------------------------------------------------------------------------------------------------------------
-#debug
-print(users)
-print(scores)
-print(genders)
+#testing part
+#print(users)
+#print(scores)
+##print(genders)
 print("----------------------")
-print(f"-Average Score: {medium_score}%-")
+print(f"-Average Score: {round(medium_score,2)}%-")
 print("----------------------")
 print()
 
 ############################################################################
                                    #TODO LIST                              
 #1)crear un subplot de genders y                                           #
-#  scores para ver que gender es mejor segun los scores                    #
+#  scores para ver que gender tiene mejores scores                         #
 #                                                                          #
 #2) agregar un ID al JSON por cada user nuevo                              #
 #                                                                          #
