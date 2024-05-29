@@ -104,9 +104,29 @@ plt.title("Quiz Scores")
 plt.legend(["Score"])
 plt.show()
 
-
+#-------------------------------------------------------------------------------------------------------------------------------------------
 #debug
 print(users)
 print(scores)
 print(genders)
-print(medium_score)
+print("----------------------")
+print(f"-Average Score: {medium_score}%-")
+print("----------------------")
+print()
+
+############################################################################
+                                   #TODO LIST                              
+#1)crear un subplot de genders y                                           #
+#  scores para ver que gender es mejor segun los scores                    #
+#                                                                          #
+#2) agregar un ID al JSON por cada user nuevo                              #
+#                                                                          #
+#3) Arreglar lo del path en la variable "file" de la linea 75              #
+# de main.py,tiene que ser un nombre corto y no todo el path del archivo   #
+#                                                                          #
+#                                                                          #
+#4) Investigar si el json file lo puedo ordenar para sacar los top 10      #
+#   mejores resultados y compararlos en matplotlib                         #
+#                                                                          #
+#5) crear validation de users para que no hayan nombres repitdos           #                                                                        #
+############################################################################

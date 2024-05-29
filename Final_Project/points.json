@@ -1,7 +1,7 @@
 {
   "points": [
     {
-      "username": "Irene",
+      "username": "Person",
       "gender": "female",
       "score": 80
     },
@@ -9,6 +9,26 @@
       "username": "tester",
       "gender": "male",
       "score": 80
+    },
+    {
+      "username": "Test at Work",
+      "gender": "female",
+      "score": 100
+    },
+    {
+      "username": "final_Test",
+      "gender": "female",
+      "score": 60
+    },
+    {
+      "username": "FinalScore",
+      "gender": "male",
+      "score": 20
+    },
+    {
+      "username": "Dot",
+      "gender": "male",
+      "score": 20
     }
   ]
 }
