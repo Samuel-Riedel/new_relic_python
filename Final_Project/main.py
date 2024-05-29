@@ -1,4 +1,6 @@
 import util as util
+import matplotlib.pyplot as plt
+import json
 from questions import Question
 from writeJSON import append_data_to_file
 
@@ -71,9 +73,37 @@ score = int(score / len(questions) * 100.0)
 print(f"your Score is {score}% ")
 
 
-
+#JSON import
 if __name__ == "__main__":
     file = "C:/Users/samue/OneDrive/Escritorio/Migracode/new_relic_python/Final_Project/points.json"
     new_data = {"username": username, "gender": gender, "score": score}
     append_data_to_file(file, new_data)
+#Loading JSON
+with open('C:/Users/samue/OneDrive/Escritorio/Migracode/new_relic_python/Final_Project/points.json') as f:
+    data = json.load(f)
 
+#Comprenhension lists with json data
+users = [entry.get("username","unknown") for entry in data["points"]]
+scores = [entry.get("score", 0)for entry in data["points"]]
+genders = [entry.get("gender","unknown")for entry in data["points"]]
+
+#Variable with medium scores for plot
+medium_score = score / len(users)
+
+
+#Plot part
+plt.plot(users,scores)
+plt.plot(medium_score, label="Medium Score")
+plt.xlabel("Usernames")
+plt.ylabel("Scores")
+plt.title("Quiz Medium Scores")
+
+plt.legend(["Score"])
+plt.show()
+
+
+#debug
+print(users)
+print(scores)
+print(genders)
+print(medium_score)
