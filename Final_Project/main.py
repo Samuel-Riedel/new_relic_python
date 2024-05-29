@@ -91,12 +91,12 @@ genders = [entry.get("gender","unknown")for entry in data["points"]]
 
 #Variable with medium scores for plot
 int_result = int(''.join(map(str, scores))) #stackoverflow convert list to numbers
-medium_score = sum(scores) / len(users) #tried to sum a list and devide it by length of list, now its fixed with sum(score) 
+medium_score = sum(scores) / len(users) #tried to sum a list and divide it by length of list, now its fixed with sum(score) 
 
 
 #Matplotlib part
 plt.plot(users,scores)
-#plt.plot(medium_score, label="Medium Score")
+plt.plot(medium_score)
 plt.xlabel("Usernames")
 plt.ylabel("Scores")
 plt.title("Quiz Scores")
