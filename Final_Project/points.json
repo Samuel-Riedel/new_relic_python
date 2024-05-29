@@ -1,39 +1,24 @@
 {
-    "points": [
-        {
-            "username": "Person",
-            "gender": "female",
-            "score": 80
-        },
-        {
-            "username": "tester",
-            "gender": "male",
-            "score": 80
-        },
-        {
-            "username": "Test at Work",
-            "gender": "female",
-            "score": 100
-        },
-        {
-            "username": "final_Test",
-            "gender": "female",
-            "score": 60
-        },
-        {
-            "username": "FinalScore",
-            "gender": "male",
-            "score": 20
-        },
-        {
-            "username": "lolk",
-            "gender": "male",
-            "score": 0
-        },
-        {
-            "username": "Samuelelel",
-            "gender": "male",
-            "score": 20
-        }
-    ]
+  "points": [
+    {
+      "username": "Person",
+      "gender": "female",
+      "score": 80
+    },
+    {
+      "username": "tester",
+      "gender": "male",
+      "score": 80
+    },
+    {
+      "username": "Test at Work",
+      "gender": "female",
+      "score": 100
+    },
+    {
+      "username": "final_Test",
+      "gender": "female",
+      "score": 60
+    }
+  ]
 }

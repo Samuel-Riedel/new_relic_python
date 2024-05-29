@@ -13,7 +13,7 @@ options = util.options
 username = input("Create your username: \n")
 
 #variable saves in an input the gender of the person  and sends its to the json file in lower case
-gender= input("Please specify a gender\n Male\n Female\n Others\n").lower()
+gender= input("Please specify a gender\nMale\nFemale\nOthers\n").lower()
 
 #created this list to append and store the user answers
 guesses = []
@@ -90,7 +90,7 @@ scores = [entry.get("score", 0)for entry in data["points"]]
 genders = [entry.get("gender","unknown")for entry in data["points"]]
 
 #Variable with medium scores for plot
-int_result = int(''.join(map(str, scores))) #stackoverflow convert list to numbers, i dont know why i created this variable 
+int_result = int(''.join(map(str, scores))) #stackoverflow convert list to numbers, i dont know why i created this variable, not going to delete it might use it later
 medium_score = sum(scores) / len(users) #tried to sum a list and divide it by length of list, now its fixed with sum(score) 
 
 
@@ -109,9 +109,9 @@ plt.show()
 #print(users)
 #print(scores)
 ##print(genders)
-print("----------------------")
+print("-----------------------")
 print(f"-Average Score: {round(medium_score,2)}%-")
-print("----------------------")
+print("-----------------------")
 print()
 
 ############################################################################
@@ -128,5 +128,7 @@ print()
 #4) Investigar si el json file lo puedo ordenar para sacar los top 10      #
 #   mejores resultados y compararlos en matplotlib                         #
 #                                                                          #
-#5) crear validation de users para que no hayan nombres repitdos           #                                                                        #
+#5) crear validation de users para que no hayan nombres repitdos           #
+#                                                                          #
+#6) cambiar las preguntas del JSON sean mas facil de leer                  #                                                                        #
 ############################################################################
