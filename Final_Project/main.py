@@ -3,11 +3,17 @@ import matplotlib.pyplot as plt
 import json
 from questions import Question
 from writeJSON import append_data_to_file
+from idGenerator import randomNumberGen
+
+
 
 #this is accessing util.py and asinging a variable 
 questions = util.questions 
 answers = util.answers
 options = util.options
+
+#variable generates a random int
+idGenerator = randomNumberGen()
 
 #asks the user to create a username to save it on JSON file
 username = input("Create your username: \n")
@@ -78,13 +84,14 @@ print("-------------------------")
 #JSON import
 if __name__ == "__main__":
     file = "C:/Users/samue/OneDrive/Escritorio/Migracode/new_relic_python/Final_Project/points.json"
-    new_data = {"username": username, "gender": gender, "score": score}
+    new_data = {"userId": idGenerator, "username": username, "gender": gender, "score": score}
     append_data_to_file(file, new_data)
 #Loading JSON
 with open('C:/Users/samue/OneDrive/Escritorio/Migracode/new_relic_python/Final_Project/points.json') as f:
     data = json.load(f)
 
 #Comprenhension lists with json data
+userId = [entry.get("userId","unknown") for entry in data["points"]]
 users = [entry.get("username","unknown") for entry in data["points"]]
 scores = [entry.get("score", 0)for entry in data["points"]]
 genders = [entry.get("gender","unknown")for entry in data["points"]]

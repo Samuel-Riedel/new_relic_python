@@ -1,24 +1,16 @@
 {
-  "points": [
-    {
-      "username": "Person",
-      "gender": "female",
-      "score": 80
-    },
-    {
-      "username": "tester",
-      "gender": "male",
-      "score": 80
-    },
-    {
-      "username": "Test at Work",
-      "gender": "female",
-      "score": 100
-    },
-    {
-      "username": "final_Test",
-      "gender": "female",
-      "score": 60
-    }
-  ]
+    "points": [
+        {
+            "userId": 9297,
+            "username": "Samuel Riedel",
+            "gender": "male",
+            "score": 20
+        },
+        {
+            "userId": 91586,
+            "username": "Final_test_at_work",
+            "gender": "male",
+            "score": 20
+        }
+    ]
 }
